@@ -1,44 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+
 import Loader from './components/Loader';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Introduction from './components/Introduction';
-import ProjectsShowcase from './components/ProjectsShowcase';
-import BrandStory from './components/BrandStory';
-import HyderabadCorridors from './components/HyderabadCorridors';
-import EnquirySection from './components/EnquirySection';
 import Footer from './components/Footer';
 import ProjectModal from './components/ProjectModal';
 import CompareModal from './components/CompareModal';
+
+import HomePage from './pages/HomePage';
+import ProjectsPage from './pages/ProjectsPage';
+import ArchitecturePage from './pages/ArchitecturePage';
+import LocationsPage from './pages/LocationsPage';
+import PhilosophyPage from './pages/PhilosophyPage';
+import ContactPage from './pages/ContactPage';
+
 import { ASBL_PROJECTS } from './data/projectsData';
 
-export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [prefilledProject, setPrefilledProject] = useState('');
-  const [selectedForCompare, setSelectedForCompare] = useState([]);
-  const [isCompareOpen, setIsCompareOpen] = useState(false);
+function AppContent({
+  isLoading,
+  setIsLoading,
+  selectedProject,
+  setSelectedProject,
+  prefilledProject,
+  setPrefilledProject,
+  selectedForCompare,
+  setSelectedForCompare,
+  isCompareOpen,
+  setIsCompareOpen,
+}) {
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  // Handle Enquiry Trigger from anywhere
-  const handleOpenEnquiry = (projectName = '') => {
-    if (projectName) {
-      setPrefilledProject(projectName);
-    }
-    const enquiryEl = document.getElementById('enquiry');
-    if (enquiryEl) {
-      enquiryEl.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  // Scroll to projects section
-  const handleExploreProjects = () => {
-    const projectsEl = document.getElementById('projects');
-    if (projectsEl) {
-      projectsEl.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  // Toggle compare selection
   const handleToggleCompare = (project) => {
     setSelectedForCompare((prev) => {
       const exists = prev.find((p) => p.id === project.id);
@@ -46,7 +39,7 @@ export default function App() {
         return prev.filter((p) => p.id !== project.id);
       }
       if (prev.length >= 3) {
-        alert('You can compare up to 3 projects at a time.');
+        alert('You can compare up to 3 projects side-by-side.');
         return prev;
       }
       return [...prev, project];
@@ -57,80 +50,136 @@ export default function App() {
     setSelectedForCompare((prev) => prev.filter((p) => p.id !== projectId));
   };
 
-  // Select project by exact name
   const handleSelectProjectByName = (name) => {
-    const found = ASBL_PROJECTS.find((p) => p.name.toLowerCase() === name.toLowerCase());
+    const found = ASBL_PROJECTS.find(
+      (p) => p.name.toLowerCase() === name.toLowerCase()
+    );
     if (found) {
       setSelectedProject(found);
     }
   };
 
+  const handleEnquireProject = (projectName) => {
+    setPrefilledProject(projectName);
+    navigate('/contact');
+  };
+
   return (
     <div className="relative min-h-screen bg-obsidian-950 text-ivory-100 font-sans selection:bg-champagne-400 selection:text-obsidian-950">
-      {/* 1. Bespoke Luxury Loader */}
+      
+      {/* Enhanced Cinematic Preloader */}
       {isLoading && <Loader onFinish={() => setIsLoading(false)} />}
 
-      {/* 2. Main Navigation Bar */}
-      <Navbar
-        onOpenEnquiry={() => handleOpenEnquiry()}
-        onSelectProject={(project) => setSelectedProject(project)}
-      />
+      {/* Global Navigation Bar */}
+      <Navbar />
 
-      {/* 3. Hero Section */}
-      <Hero
-        onExploreClick={handleExploreProjects}
-        onEnquiryClick={() => handleOpenEnquiry()}
-      />
+      {/* Routed Pages with Fluid Motion */}
+      <main>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full"
+          >
+            <Routes location={location}>
+              <Route
+                path="/"
+                element={<HomePage onSelectProject={(p) => setSelectedProject(p)} />}
+              />
+              <Route
+                path="/projects"
+                element={
+                  <ProjectsPage
+                    onSelectProject={(p) => setSelectedProject(p)}
+                    onEnquireProject={handleEnquireProject}
+                    selectedForCompare={selectedForCompare}
+                    onToggleCompare={handleToggleCompare}
+                    onOpenCompare={() => setIsCompareOpen(true)}
+                  />
+                }
+              />
+              <Route path="/architecture" element={<ArchitecturePage />} />
+              <Route
+                path="/locations"
+                element={
+                  <LocationsPage
+                    onSelectProjectByName={(name) => handleSelectProjectByName(name)}
+                  />
+                }
+              />
+              <Route path="/philosophy" element={<PhilosophyPage />} />
+              <Route
+                path="/contact"
+                element={
+                  <ContactPage
+                    prefilledProject={prefilledProject}
+                    onResetPrefill={() => setPrefilledProject('')}
+                  />
+                }
+              />
+              <Route
+                path="*"
+                element={<HomePage onSelectProject={(p) => setSelectedProject(p)} />}
+              />
+            </Routes>
+          </motion.div>
+        </AnimatePresence>
+      </main>
 
-      {/* 4. Introduction & Residential Philosophy */}
-      <Introduction />
+      {/* Global Footer */}
+      <Footer onSelectProjectByName={handleSelectProjectByName} />
 
-      {/* 5. The 7 Landmark Projects Showcase (Core Component) */}
-      <ProjectsShowcase
-        onSelectProject={(project) => setSelectedProject(project)}
-        onEnquireProject={(projectName) => handleOpenEnquiry(projectName)}
-        selectedForCompare={selectedForCompare}
-        onToggleCompare={handleToggleCompare}
-        onOpenCompare={() => setIsCompareOpen(true)}
-      />
-
-      {/* 6. Brand Story & Engineering Pillars */}
-      <BrandStory onEnquiryClick={() => handleOpenEnquiry()} />
-
-      {/* 7. Strategic Hyderabad Corridors */}
-      <HyderabadCorridors
-        onSelectProjectByName={handleSelectProjectByName}
-      />
-
-      {/* 8. Advisory & Private Visit Enquiry Form */}
-      <EnquirySection
-        prefilledProject={prefilledProject}
-        onResetPrefill={() => setPrefilledProject('')}
-      />
-
-      {/* 9. Editorial Footer */}
-      <Footer
-        onSelectProjectByName={handleSelectProjectByName}
-        onOpenEnquiry={() => handleOpenEnquiry()}
-      />
-
-      {/* 10. Deep-Dive Project Modal / Spec Sheet */}
+      {/* Deep-Dive Architectural Spec Sheet Modal */}
       <ProjectModal
         project={selectedProject}
         isOpen={!!selectedProject}
         onClose={() => setSelectedProject(null)}
-        onEnquireProject={(projectName) => handleOpenEnquiry(projectName)}
+        onEnquireProject={(projectName) => {
+          setSelectedProject(null);
+          handleEnquireProject(projectName);
+        }}
       />
 
-      {/* 11. Side-by-Side Comparison Modal */}
+      {/* Side-by-Side Comparison Matrix Modal */}
       <CompareModal
         isOpen={isCompareOpen}
         onClose={() => setIsCompareOpen(false)}
         selectedProjects={selectedForCompare}
         onRemoveProject={handleRemoveCompare}
         onSelectDetail={(p) => setSelectedProject(p)}
-        onEnquireProject={(projectName) => handleOpenEnquiry(projectName)}
+        onEnquireProject={(projectName) => {
+          setIsCompareOpen(false);
+          handleEnquireProject(projectName);
+        }}
       />
     </div>
+  );
+}
+
+export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [prefilledProject, setPrefilledProject] = useState('');
+  const [selectedForCompare, setSelectedForCompare] = useState([]);
+  const [isCompareOpen, setIsCompareOpen] = useState(false);
+
+  return (
+    <Router>
+      <AppContent
+        isLoading={isLoading}
+        setIsLoading={setIsLoading}
+        selectedProject={selectedProject}
+        setSelectedProject={setSelectedProject}
+        prefilledProject={prefilledProject}
+        setPrefilledProject={setPrefilledProject}
+        selectedForCompare={selectedForCompare}
+        setSelectedForCompare={setSelectedForCompare}
+        isCompareOpen={isCompareOpen}
+        setIsCompareOpen={setIsCompareOpen}
+      />
+    </Router>
   );
 }
