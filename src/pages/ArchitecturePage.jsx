@@ -161,7 +161,7 @@ export default function ArchitecturePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <div className="glass-card p-7 rounded-sm border border-white/5 space-y-4">
+            <div className="glass-card card-glow-hover p-7 rounded-sm border border-white/5 space-y-4">
               <div className="p-3 rounded-sm bg-champagne-400/10 text-champagne-400 w-fit">
                 <Layers className="w-5 h-5" />
               </div>
@@ -178,7 +178,7 @@ export default function ArchitecturePage() {
               </div>
             </div>
 
-            <div className="glass-card p-7 rounded-sm border border-white/5 space-y-4">
+            <div className="glass-card card-glow-hover p-7 rounded-sm border border-white/5 space-y-4">
               <div className="p-3 rounded-sm bg-champagne-400/10 text-champagne-400 w-fit">
                 <Sun className="w-5 h-5" />
               </div>
@@ -194,7 +194,7 @@ export default function ArchitecturePage() {
               </div>
             </div>
 
-            <div className="glass-card p-7 rounded-sm border border-white/5 space-y-4">
+            <div className="glass-card card-glow-hover p-7 rounded-sm border border-white/5 space-y-4">
               <div className="p-3 rounded-sm bg-champagne-400/10 text-champagne-400 w-fit">
                 <VolumeX className="w-5 h-5" />
               </div>
@@ -269,7 +269,7 @@ export default function ArchitecturePage() {
 
           <Link
             to="/contact"
-            className="px-7 py-3.5 rounded-sm bg-champagne-400 hover:bg-champagne-300 text-obsidian-950 font-semibold text-xs uppercase tracking-[0.2em] transition-all shrink-0 shadow-luxury"
+            className="px-7 py-3.5 rounded-sm bg-champagne-400 hover:bg-champagne-300 text-obsidian-950 font-semibold text-xs uppercase tracking-[0.2em] transition-all shrink-0 shadow-luxury btn-liquid-shine cursor-pointer"
           >
             Schedule VIP Site Tour
           </Link>

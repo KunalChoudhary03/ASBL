@@ -329,7 +329,7 @@ export default function ContactPage({ prefilledProject, onResetPrefill }) {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 rounded-sm bg-champagne-400 hover:bg-champagne-300 disabled:opacity-60 text-obsidian-950 font-semibold text-xs uppercase tracking-[0.22em] transition-all flex items-center justify-center gap-3 shadow-luxury"
+                    className="w-full py-4 rounded-sm bg-champagne-400 hover:bg-champagne-300 disabled:opacity-60 text-obsidian-950 font-semibold text-xs uppercase tracking-[0.22em] transition-all flex items-center justify-center gap-3 shadow-luxury btn-liquid-shine cursor-pointer"
                   >
                     {isSubmitting ? (
                       <>

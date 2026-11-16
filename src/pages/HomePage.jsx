@@ -88,7 +88,7 @@ export default function HomePage({ onSelectProject }) {
             >
               <Link
                 to="/projects"
-                className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-sm bg-champagne-400 hover:bg-champagne-300 text-obsidian-950 font-semibold text-xs uppercase tracking-[0.22em] transition-all duration-300 shadow-luxury hover:shadow-[0_0_30px_rgba(204,168,123,0.35)]"
+                className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-sm bg-champagne-400 hover:bg-champagne-300 text-obsidian-950 font-semibold text-xs uppercase tracking-[0.22em] transition-all duration-300 shadow-luxury hover:shadow-[0_0_30px_rgba(204,168,123,0.35)] btn-liquid-shine cursor-pointer"
               >
                 <span>Explore All 7 Projects</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -96,7 +96,7 @@ export default function HomePage({ onSelectProject }) {
 
               <Link
                 to="/architecture"
-                className="group inline-flex items-center gap-3 px-7 py-4 rounded-sm bg-obsidian-900/80 hover:bg-obsidian-850 border border-white/10 hover:border-champagne-400/50 text-ivory-100 text-xs font-semibold uppercase tracking-[0.22em] transition-all duration-300 backdrop-blur-md"
+                className="group inline-flex items-center gap-3 px-7 py-4 rounded-sm bg-obsidian-900/80 hover:bg-obsidian-850 border border-white/10 hover:border-champagne-400/50 text-ivory-100 text-xs font-semibold uppercase tracking-[0.22em] transition-all duration-300 backdrop-blur-md btn-liquid-shine cursor-pointer"
               >
                 <span>Discover Our Engineering</span>
                 <Compass className="w-4 h-4 text-champagne-400 transition-transform group-hover:rotate-45" />
@@ -229,7 +229,7 @@ export default function HomePage({ onSelectProject }) {
 
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-sm bg-obsidian-900 hover:bg-obsidian-850 border border-white/10 hover:border-champagne-400/50 text-ivory-100 hover:text-champagne-300 text-xs font-semibold uppercase tracking-[0.2em] transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-sm bg-obsidian-900 hover:bg-obsidian-850 border border-white/10 hover:border-champagne-400/50 text-ivory-100 hover:text-champagne-300 text-xs font-semibold uppercase tracking-[0.2em] transition-all btn-liquid-shine cursor-pointer"
             >
               <span>View All 7 Projects</span>
               <ArrowUpRight className="w-4 h-4 text-champagne-400" />
@@ -241,7 +241,7 @@ export default function HomePage({ onSelectProject }) {
             {featuredProjects.map((project) => (
               <div
                 key={project.id}
-                className="group glass-card glass-card-hover rounded-sm overflow-hidden flex flex-col justify-between"
+                className="group glass-card glass-card-hover card-glow-hover rounded-sm overflow-hidden flex flex-col justify-between"
               >
                 <div
                   className="relative aspect-[16/11] overflow-hidden bg-obsidian-900 cursor-pointer"
@@ -303,14 +303,14 @@ export default function HomePage({ onSelectProject }) {
                   <div className="pt-2 flex items-center gap-2">
                     <button
                       onClick={() => onSelectProject(project)}
-                      className="flex-1 py-2.5 px-3 rounded-sm bg-obsidian-850 hover:bg-obsidian-800 border border-white/10 hover:border-champagne-400/40 text-[11px] font-semibold uppercase tracking-wider text-ivory-200 hover:text-champagne-300 transition-colors flex items-center justify-center gap-1.5"
+                      className="flex-1 py-2.5 px-3 rounded-sm bg-obsidian-850 hover:bg-obsidian-800 border border-white/10 hover:border-champagne-400/40 text-[11px] font-semibold uppercase tracking-wider text-ivory-200 hover:text-champagne-300 transition-colors flex items-center justify-center gap-1.5 btn-liquid-shine cursor-pointer"
                     >
                       <span>Architectural Sheet</span>
                       <ArrowUpRight className="w-3.5 h-3.5 text-champagne-400" />
                     </button>
                     <Link
                       to="/contact"
-                      className="py-2.5 px-4 rounded-sm bg-champagne-400 hover:bg-champagne-300 text-obsidian-950 text-[11px] font-semibold uppercase tracking-wider transition-colors shadow-sm"
+                      className="py-2.5 px-4 rounded-sm bg-champagne-400 hover:bg-champagne-300 text-obsidian-950 text-[11px] font-semibold uppercase tracking-wider transition-colors shadow-sm btn-liquid-shine cursor-pointer"
                     >
                       Inquire
                     </Link>
@@ -341,13 +341,13 @@ export default function HomePage({ onSelectProject }) {
           <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/contact"
-              className="px-8 py-4 rounded-sm bg-champagne-400 hover:bg-champagne-300 text-obsidian-950 font-semibold text-xs uppercase tracking-[0.22em] transition-all shadow-luxury hover:shadow-[0_0_25px_rgba(204,168,123,0.3)]"
+              className="px-8 py-4 rounded-sm bg-champagne-400 hover:bg-champagne-300 text-obsidian-950 font-semibold text-xs uppercase tracking-[0.22em] transition-all shadow-luxury hover:shadow-[0_0_25px_rgba(204,168,123,0.3)] btn-liquid-shine cursor-pointer"
             >
               Book Private Consultation
             </Link>
             <Link
               to="/locations"
-              className="px-7 py-4 rounded-sm bg-obsidian-900 hover:bg-obsidian-850 border border-white/10 hover:border-champagne-400/50 text-ivory-100 text-xs font-semibold uppercase tracking-[0.22em] transition-all"
+              className="px-7 py-4 rounded-sm bg-obsidian-900 hover:bg-obsidian-850 border border-white/10 hover:border-champagne-400/50 text-ivory-100 text-xs font-semibold uppercase tracking-[0.22em] transition-all btn-liquid-shine cursor-pointer"
             >
               Explore Hyderabad Corridors
             </Link>

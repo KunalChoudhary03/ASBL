@@ -157,7 +157,7 @@ export default function PhilosophyPage() {
             {testimonials.map((t, idx) => (
               <div
                 key={idx}
-                className="glass-card p-8 rounded-sm border border-white/10 space-y-5 flex flex-col justify-between"
+                className="glass-card card-glow-hover p-8 rounded-sm border border-white/10 space-y-5 flex flex-col justify-between"
               >
                 <p className="font-serif text-lg text-ivory-100 font-light italic leading-relaxed">
                   "{t.quote}"
@@ -188,7 +188,7 @@ export default function PhilosophyPage() {
           <div className="pt-2">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-sm bg-champagne-400 hover:bg-champagne-300 text-obsidian-950 font-semibold text-xs uppercase tracking-[0.2em] transition-all shadow-luxury"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-sm bg-champagne-400 hover:bg-champagne-300 text-obsidian-950 font-semibold text-xs uppercase tracking-[0.2em] transition-all shadow-luxury btn-liquid-shine cursor-pointer"
             >
               <span>Schedule VIP Site Tour</span>
               <ArrowRight className="w-4 h-4" />

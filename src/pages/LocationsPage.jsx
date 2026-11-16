@@ -160,7 +160,7 @@ export default function LocationsPage({ onSelectProjectByName }) {
                     <div
                       key={projName}
                       onClick={() => onSelectProjectByName && onSelectProjectByName(projName)}
-                      className="p-4 rounded-sm bg-obsidian-900 border border-white/10 hover:border-champagne-400/50 transition-all cursor-pointer group flex flex-col justify-between"
+                      className="card-glow-hover p-4 rounded-sm bg-obsidian-900 border border-white/10 hover:border-champagne-400/50 transition-all cursor-pointer group flex flex-col justify-between"
                     >
                       <div className="flex items-start justify-between mb-2">
                         <span className="font-serif text-base text-ivory-50 group-hover:text-champagne-300 font-medium">

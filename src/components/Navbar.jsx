@@ -98,7 +98,7 @@ export default function Navbar({ onOpenEnquiry }) {
           <div className="hidden lg:flex items-center gap-4">
             <Link
               to="/contact"
-              className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-sm bg-gradient-to-r from-champagne-500/15 via-champagne-400/25 to-champagne-500/15 border border-champagne-400/50 hover:border-champagne-400 hover:bg-champagne-400 text-champagne-300 hover:text-obsidian-950 text-xs font-semibold uppercase tracking-[0.2em] transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_rgba(204,168,123,0.3)]"
+              className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-sm bg-gradient-to-r from-champagne-500/15 via-champagne-400/25 to-champagne-500/15 border border-champagne-400/50 hover:border-champagne-400 hover:bg-champagne-400 text-champagne-300 hover:text-obsidian-950 text-xs font-semibold uppercase tracking-[0.2em] transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_rgba(204,168,123,0.3)] btn-liquid-shine cursor-pointer"
             >
               <span>VIP Site Tour</span>
               <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

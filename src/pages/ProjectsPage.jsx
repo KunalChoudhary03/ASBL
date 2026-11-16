@@ -254,7 +254,7 @@ export default function ProjectsPage({
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.5, delay: idx * 0.06 }}
-                    className="group glass-card glass-card-hover rounded-sm overflow-hidden flex flex-col justify-between"
+                    className="group glass-card card-glow-hover rounded-sm overflow-hidden flex flex-col justify-between"
                   >
                     <div
                       className="relative aspect-[16/11] overflow-hidden bg-obsidian-900 cursor-pointer"
@@ -340,7 +340,7 @@ export default function ProjectsPage({
                       <div className="flex items-center gap-2 pt-2">
                         <button
                           onClick={() => onSelectProject(project)}
-                          className="flex-1 py-2.5 px-3 rounded-sm bg-obsidian-850 hover:bg-obsidian-800 border border-white/10 hover:border-champagne-400/40 text-[11px] font-semibold uppercase tracking-wider text-ivory-200 hover:text-champagne-300 transition-colors flex items-center justify-center gap-1.5"
+                          className="btn-liquid-shine flex-1 py-2.5 px-3 rounded-sm bg-obsidian-850 hover:bg-obsidian-800 border border-white/10 hover:border-champagne-400/50 text-[11px] font-semibold uppercase tracking-wider text-ivory-200 hover:text-champagne-300 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                         >
                           <span>Architectural Sheet</span>
                           <ArrowRight className="w-3.5 h-3.5 text-champagne-400" />
@@ -348,7 +348,7 @@ export default function ProjectsPage({
 
                         <button
                           onClick={() => onEnquireProject(project.name)}
-                          className="py-2.5 px-4 rounded-sm bg-champagne-400 hover:bg-champagne-300 text-obsidian-950 text-[11px] font-semibold uppercase tracking-wider transition-colors shadow-sm"
+                          className="btn-liquid-shine py-2.5 px-4 rounded-sm bg-champagne-400 hover:bg-champagne-300 text-obsidian-950 text-[11px] font-semibold uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
                         >
                           Inquire
                         </button>
@@ -371,7 +371,7 @@ export default function ProjectsPage({
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.98 }}
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  className="group glass-card glass-card-hover rounded-sm p-6 sm:p-8 flex flex-col lg:flex-row gap-8 items-center justify-between"
+                  className="group glass-card glass-card-hover card-glow-hover rounded-sm p-6 sm:p-8 flex flex-col lg:flex-row gap-8 items-center justify-between"
                 >
                   <div
                     className="relative w-full lg:w-72 aspect-[16/10] rounded-sm overflow-hidden shrink-0 cursor-pointer bg-obsidian-900 border border-white/10"
@@ -435,7 +435,7 @@ export default function ProjectsPage({
                   <div className="flex sm:flex-col items-center gap-3 w-full lg:w-44 shrink-0">
                     <button
                       onClick={() => onSelectProject(project)}
-                      className="flex-1 sm:w-full py-2.5 px-4 rounded-sm bg-obsidian-850 hover:bg-obsidian-800 border border-white/10 hover:border-champagne-400/50 text-xs font-semibold uppercase tracking-wider text-ivory-100 hover:text-champagne-300 transition-colors flex items-center justify-center gap-2"
+                      className="btn-liquid-shine cursor-pointer flex-1 sm:w-full py-2.5 px-4 rounded-sm bg-obsidian-850 hover:bg-obsidian-800 border border-white/10 hover:border-champagne-400/50 text-xs font-semibold uppercase tracking-wider text-ivory-100 hover:text-champagne-300 transition-colors flex items-center justify-center gap-2"
                     >
                       <span>View Specs</span>
                       <ArrowRight className="w-3.5 h-3.5 text-champagne-400" />
@@ -443,7 +443,7 @@ export default function ProjectsPage({
 
                     <button
                       onClick={() => onEnquireProject(project.name)}
-                      className="flex-1 sm:w-full py-2.5 px-4 rounded-sm bg-champagne-400 hover:bg-champagne-300 text-obsidian-950 text-xs font-semibold uppercase tracking-wider transition-colors"
+                      className="btn-liquid-shine cursor-pointer flex-1 sm:w-full py-2.5 px-4 rounded-sm bg-champagne-400 hover:bg-champagne-300 text-obsidian-950 text-xs font-semibold uppercase tracking-wider transition-colors"
                     >
                       Inquire
                     </button>
